@@ -30,18 +30,18 @@ def ask_yes_no(user_query):
 class Card(object):
     '''A standard game card.'''
 
-    SUITS = [
+    SUITS = (
         'c',  # clubs
         'd',  # diamonds
         'h',  # hearts
         's',  # spades
-    ]
+    )
 
-    RANKS = [
+    RANKS = (
         'A',
         '2', '3', '4', '5', '6', '7', '8', '9', '10',
         'J', 'Q', 'K'
-    ]
+    )
 
     def __init__(self, rank, suit, obverse_up=True):
         self.rank = rank
