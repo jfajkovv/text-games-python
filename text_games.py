@@ -50,7 +50,7 @@ class Card(object):
 
     def __str__(self):
         if self.is_obverse_up:
-            re = f'[{self.rank}{self.suit}]'
+            re = f'[{self.rank}{self.suit}]'  # e.g. [Ah]
         else:
             re = '[Xx]
         return re
