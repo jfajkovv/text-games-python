@@ -52,7 +52,7 @@ class Card(object):
         if self.is_obverse_up:
             re = f'[{self.rank}{self.suit}]'  # e.g. [Ah]
         else:
-            re = '[Xx]
+            re = '[Xx]'
         return re
 
     def flip(self):
