@@ -30,19 +30,6 @@ def ask_yes_no(user_query):
 class Card(object):
     '''A standard game card.'''
 
-    SUITS = (
-        'c',  # clubs
-        'd',  # diamonds
-        'h',  # hearts
-        's',  # spades
-    )
-
-    RANKS = (
-        'A',
-        '2', '3', '4', '5', '6', '7', '8', '9', '10',
-        'J', 'Q', 'K'
-    )
-
     def __init__(self, rank, suit, obverse_up=True):
         self.rank = rank
         self.suit = suit
@@ -88,3 +75,41 @@ class Hand(object):
 
     def clear(self):
         self.card_set = []
+
+
+class Deck(Hand):
+    '''Extension of Hand. Source of game cards to play with
+    - a deck.'''
+
+    SUITS = (
+        'c',  # clubs
+        'd',  # diamonds
+        'h',  # hearts
+        's',  # spades
+    )
+
+    RANKS = (
+        'A',
+        '2', '3', '4', '5', '6', '7', '8', '9', '10',
+        'J', 'Q', 'K'
+    )
+
+    def fill_in(self):
+        for suit in SUITS:
+            for rank in RANKS:
+                self.stack_on(single_card=Card(rank=rank, suit=suit))
+
+    def shuffle(self):
+
+        from random import shuffle
+
+        shuffle(self.card_set)
+
+    def hand_out(self, hands, per_hand=1):
+        if self.card_set:
+            for rounds in range(per_hand):
+                for hand in hands:
+                    deck_top_card = self.card_set[0]
+                    self.give(a_card=deck_top_card, other_hand=hand)
+        else:
+            print('game: deck depleted')
