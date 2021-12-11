@@ -21,6 +21,13 @@ def ask_yes_no(user_query):
         reply = input('\t' + user_query).lower()
     return reply
 
+
+class Player(object):
+    '''Game participant.'''
+
+    def __init__(self, name):
+        self.name = name
+
 ####
 ###
 ### Card games
