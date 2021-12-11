@@ -48,7 +48,7 @@ class Card(object):
 
 class Hand(object):
     '''Collection of cards. A representation of player's game cards
-    - to play with at hand.'''
+    -- to play with at hand.'''
 
     def __init__(self):
         self.card_set = []
@@ -79,7 +79,7 @@ class Hand(object):
 
 class Deck(Hand):
     '''Extension of Hand. Source of game cards to play with
-    - a deck.'''
+    -- a deck structure.'''
 
     SUITS = (
         'c',  # clubs
@@ -113,3 +113,8 @@ class Deck(Hand):
                     self.give(a_card=deck_top_card, other_hand=hand)
         else:
             print('game: deck depleted')
+
+
+if __name__ == '__main__':
+    print('info: text_games.py module')
+    print('info: direct execution')
