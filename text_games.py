@@ -37,20 +37,20 @@ class Player(object):
 class Card(object):
     '''A standard game card.'''
 
-    def __init__(self, rank, suit, obverse_up=True):
+    def __init__(self, rank, suit, face_up=True):
         self.rank = rank
         self.suit = suit
-        self.is_obverse_up = obverse_up
+        self.is_face_up = face_up
 
     def __str__(self):
-        if self.is_obverse_up:
+        if self.is_face_up:
             re = f'[{self.rank}{self.suit}]'  # e.g. [Ah]
         else:
             re = '[Xx]'
         return re
 
     def flip(self):
-        self.is_obverse_up = not self.is_obverse_up
+        self.is_face_up = not self.is_face_up
 
 
 class Hand(object):
