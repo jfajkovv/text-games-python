@@ -101,10 +101,11 @@ class Deck(Hand):
         'J', 'Q', 'K'
     )
 
-    def fill_in(self):
-        for suit in SUITS:
-            for rank in RANKS:
-                self.stack_on(single_card=Card(rank=rank, suit=suit))
+    def fill_in(self, stacks=1):
+        for stack in stacks:
+            for suit in SUITS:
+                for rank in RANKS:
+                    self.stack_on(single_card=Card(rank=rank, suit=suit))
 
     def shuffle(self):
 
