@@ -76,9 +76,9 @@ class Hand(object):
         self.card_set.remove(a_card)
         other_hand.stack_on(single_card=a_card)
 
-    def transfer_all(self, given_set, route):
-        for card in given_set:
-            self.give(a_card=card, other_hand=route)
+    def transfer_all(self, route):
+        for card in self.card_set:
+            route.stack_on(single_card=card)
 
     def clear(self):
         self.card_set = []
@@ -112,7 +112,6 @@ class Deck(Hand):
         from random import shuffle
 
         shuffle(self.card_set)
-        print('*shuffling cards*')
 
     def hand_out(self, hands, per_hand=1):
         if self.card_set:
